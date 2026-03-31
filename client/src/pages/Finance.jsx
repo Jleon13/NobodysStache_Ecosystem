@@ -9,6 +9,11 @@ import { Doughnut, Bar } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
 const API_URL = 'http://localhost:3001/api';
 
+const getLocalDate = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
 function Finance() {
     const [data, setData] = useState({
         transactions: [], debts: [], categories: { income: [], expense: [] }, savings: 0
@@ -42,7 +47,7 @@ function Finance() {
         e.preventDefault();
         if (!formData.amount) return;
         setLoading(true);
-        await axios.post(`${API_URL}/transactions`, { ...formData, amount: Number(formData.amount), date: new Date().toISOString().split('T')[0] });
+        await axios.post(`${API_URL}/transactions`, { ...formData, amount: Number(formData.amount), date: getLocalDate() });
         setFormData(prev => ({ ...prev, amount: '', description: '', category: '' }));
         await fetchData();
         setLoading(false);
@@ -52,7 +57,7 @@ function Finance() {
         e.preventDefault();
         if (!debtForm.amount) return;
         setLoading(true);
-        await axios.post(`${API_URL}/debts`, { ...debtForm, amount: Number(debtForm.amount), date: new Date().toISOString().split('T')[0] });
+        await axios.post(`${API_URL}/debts`, { ...debtForm, amount: Number(debtForm.amount), date: getLocalDate() });
         setDebtForm({ type: 'debt', amount: '', category: '', description: '' });
         await fetchData();
         setLoading(false);

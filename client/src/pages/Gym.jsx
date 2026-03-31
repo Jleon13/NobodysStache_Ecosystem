@@ -11,6 +11,11 @@ import { Line } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 const API_URL = 'http://localhost:3001/api';
 
+const getLocalDate = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
 function Gym() {
     const [logs, setLogs] = useState([]);
     const [exercises, setExercises] = useState([]);
@@ -148,7 +153,7 @@ function Gym() {
                         <h3>Daily Stats</h3>
                         <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '1rem' }}>
                             <div style={{ fontSize: '0.75rem', color: '#64748b' }}>VOLUME TODAY</div>
-                            <div style={{ fontSize: '1.5rem' }}>{logs.filter(l => l.date === new Date().toISOString().split('T')[0]).reduce((a, b) => a + (b.weight * b.reps), 0).toLocaleString()} kg</div>
+                            <div style={{ fontSize: '1.5rem' }}>{logs.filter(l => l.date === getLocalDate()).reduce((a, b) => a + (b.weight * b.reps), 0).toLocaleString()} kg</div>
                         </div>
                     </div>
                 </aside>

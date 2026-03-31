@@ -14,6 +14,11 @@ import {
 const app = express();
 const PORT = 3001;
 
+const getLocalDate = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
 app.use(cors());
 app.use(express.json());
 
@@ -48,7 +53,7 @@ app.delete('/api/exercises/:name', handleAsync(async (req, res) => {
 app.get('/api/gym', handleAsync(async (req, res) => res.json(await readGym())));
 app.post('/api/gym', handleAsync(async (req, res) => {
     const gym = await readGym();
-    const entry = { id: nanoid(), ...req.body, date: new Date().toISOString().split('T')[0] };
+    const entry = { id: nanoid(), ...req.body, date: getLocalDate() };
     gym.push(entry);
     await writeGym(gym);
     res.json(entry);
@@ -109,7 +114,7 @@ app.post('/api/debts/pay', handleAsync(async (req, res) => {
         if (debt.balance <= 0) data.debts = data.debts.filter(d => d.id !== debtId);
         await writeSavings(data);
         const trans = await readTransactions();
-        trans.push({ id: nanoid(), type: 'egreso', amount, category: 'Debt Payment', description: `Paid: ${debt.description}`, date: new Date().toISOString().split('T')[0] });
+        trans.push({ id: nanoid(), type: 'egreso', amount, category: 'Debt Payment', description: `Paid: ${debt.description}`, date: getLocalDate() });
         await writeTransactions(trans);
     }
     res.json({ success: true });
@@ -124,7 +129,7 @@ app.post('/api/savings/update', handleAsync(async (req, res) => {
 app.get('/api/writings', handleAsync(async (req, res) => res.json(await readWritings())));
 app.post('/api/writings', handleAsync(async (req, res) => {
     const writings = await readWritings();
-    const entry = { id: nanoid(), ...req.body, date: new Date().toISOString().split('T')[0] };
+    const entry = { id: nanoid(), ...req.body, date: getLocalDate() };
     writings.push(entry);
     await writeWritings(writings);
     res.json(entry);
