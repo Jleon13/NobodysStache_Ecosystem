@@ -31,6 +31,8 @@ Un refugio minimalista para tus ideas y escritos.
 
 ![Escritura](./images/writting.png)
 
+![Escritura Detalle](./images/writting2.png)
+
 ---
 
 ## 🛠️ Stack Tecnológico
@@ -60,11 +62,6 @@ Un refugio minimalista para tus ideas y escritos.
    ```bash
    npm run dev
    ```
-
----
-
-## 🔒 Seguridad de Datos
-Este proyecto está configurado para **no subir archivos de datos reales** (`.txt`, `.json` en la carpeta `/data`) a GitHub, protegiendo así tu privacidad financiera y personal.
 
 ---
 
