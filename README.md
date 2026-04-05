@@ -1,24 +1,38 @@
 # 🌿 ECO: Personal Ecosystem
 
-A premium, minimalist 3-column workspace for personal finance, task management, and academic reminders. Built with a focus on tranquility and productivity.
+A premium, minimalist workspace for personal finance, task management, and academic reminders. Built with a focus on tranquility and productivity.
 
-![Ecosystem Mockup](./eco_dashboard_mockup_1775405686237.png)
+![Tasks Hub](./images/todo.png)
 
 ## 🚀 Concept
 **ECO** is designed to be your digital center of operations. It is not just a to-do list; it's a productivity hub where your focus (Mantra), your immediate goals (Tasks), and your history (Records) coexist in a balanced, aesthetic layout.
 
 ## 🏗️ Key Modules
-- **Hero Mantra**: A dedicated space for your daily focus phrase, displayed in stunning 2.8rem typography.
-- **TO - DO Hub**: Advanced task tracking with priority-based sorting (High > Medium > Low) and deadline formatting.
-- **Papers & Events**: Specialized tracking for academic conferences, papers, and professional milestones, managed independently from daily tasks.
-- **Finance & Savings**: Tracker for savings, debts, and transaction history.
-- **Gym & Wellness**: Workout logging and progress tracking.
-- **Writings & Dictionary**: Modules for creative writing and building a personal dictionary.
+
+### 🗒️ TO - DO Hub
+Advanced task tracking with priority-based sorting (High > Medium > Low) and manual special deadlines for conferences and papers.
+![TODO](./images/todo.png)
+
+### 💰 Finance & Savings
+Tracker for savings, debts, and transaction history with real-time liquidity calculation.
+![Finance](./images/finance.png)
+
+### 🏋️ Gym & Wellness
+Workout logging and exercise progress tracking.
+![Gym](./images/gym.png)
+
+### ✍️ Writings & Creative Hub
+A dedicated space for creative writing, reflections, and thoughts.
+![Writings](./images/writting.png)
+
+### 📖 Personal Dictionary
+Build your own database of terms, meanings, and abbreviations.
+![Dictionary](./images/larousse.png)
 
 ## 📂 Data & Persistence (Safe for GitHub)
 This project is designed for **data privacy** and **easy deployment**:
 1. **Local JSON Persistence**: All data is stored in plain-text `.txt` files (JSON format) within the `data/` directory.
-2. **Auto-Initialization**: The server uses a robust `initFiles()` logic. When you run the application for the first time, it automatically creates all necessary data files with the correct default structures (`[]`, `{savings: 0, debts: []}`, etc.) if they don't exist.
+2. **Auto-Initialization**: The server uses a robust `initFiles()` logic. When you run the application for the first time, it automatically creates all necessary data files with the correct default structures if they don't exist.
 3. **GitHub Ready**: The `.gitignore` is configured to ignore all `.txt` files in `data/`. This ensures your personal information stays on your machine, while anyone else who clones the repo gets a fresh, empty environment.
 
 ## 🛠️ Installation
