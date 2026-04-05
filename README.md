@@ -1,68 +1,40 @@
-# 🌌 NobodysStache Ecosystem
+# 🌿 ECO: Personal Ecosystem
 
-Un ecosistema personal avanzado diseñado para centralizar el control de las **finanzas**, el **progreso físico** y la **creación literaria**. Esta plataforma ofrece una interfaz moderna, oscura y altamente interactiva para gestionar el día a día con total claridad.
+A premium, minimalist 3-column workspace for personal finance, task management, and academic reminders. Built with a focus on tranquility and productivity.
 
-![Preview de la Plataforma](./images/finance.png)
+![Ecosystem Mockup](./eco_dashboard_mockup_1775405686237.png)
 
-## 🚀 Características Principales
+## 🚀 Concept
+**ECO** is designed to be your digital center of operations. It is not just a to-do list; it's a productivity hub where your focus (Mantra), your immediate goals (Tasks), and your history (Records) coexist in a balanced, aesthetic layout.
 
-### 💰 Gestión Financiera (Finance)
-Control total sobre tu flujo de caja con una visualización de datos de primer nivel.
-- **Seguimiento de Saldos**: Visualiza tus fondos disponibles, ahorros y patrimonio neto en tiempo real.
-- **Gráficos Dinámicos**: Monitorización del tráfico diario y distribución de egresos por categorías.
-- **Gestión de Deudas**: Sistema integrado para controlar préstamos (por cobrar y por pagar) con barras de progreso.
-- **Categorización Flexible**: Crea y gestiona tus propias fuentes de ingresos y gastos.
+## 🏗️ Key Modules
+- **Hero Mantra**: A dedicated space for your daily focus phrase, displayed in stunning 2.8rem typography.
+- **TO - DO Hub**: Advanced task tracking with priority-based sorting (High > Medium > Low) and deadline formatting.
+- **Papers & Events**: Specialized tracking for academic conferences, papers, and professional milestones, managed independently from daily tasks.
+- **Finance & Savings**: Tracker for savings, debts, and transaction history.
+- **Gym & Wellness**: Workout logging and progress tracking.
+- **Writings & Dictionary**: Modules for creative writing and building a personal dictionary.
 
-![Finanzas](./images/finance.png)
+## 📂 Data & Persistence (Safe for GitHub)
+This project is designed for **data privacy** and **easy deployment**:
+1. **Local JSON Persistence**: All data is stored in plain-text `.txt` files (JSON format) within the `data/` directory.
+2. **Auto-Initialization**: The server uses a robust `initFiles()` logic. When you run the application for the first time, it automatically creates all necessary data files with the correct default structures (`[]`, `{savings: 0, debts: []}`, etc.) if they don't exist.
+3. **GitHub Ready**: The `.gitignore` is configured to ignore all `.txt` files in `data/`. This ensures your personal information stays on your machine, while anyone else who clones the repo gets a fresh, empty environment.
 
-### 🏋️ Entrenamientos (Gym)
-Mantén un registro detallado de tu evolución física.
-- **Dashboard de Ejercicios**: Visualiza tu volumen de entrenamiento y récords personales.
-- **Historial de Sesiones**: Registro cronológico de cada levantamiento y marca.
-- **Análisis de Progreso**: Gráficos que muestran tu constancia y fuerza a lo largo del tiempo.
-
-![Gimnasio](./images/gym.png)
-
-### ✍️ Espacio Creativo (Writing)
-Un refugio minimalista para tus ideas y escritos.
-- **Organización por Categorías**: Clasifica tus textos (novelas, artículos, pensamientos) fácilmente.
-- **Editor sin Distracciones**: Interfaz limpia diseñada para fomentar el flujo creativo.
-- **Biblioteca Personal**: Acceso rápido a todos tus escritos previos.
-
-![Escritura](./images/writting.png)
-
-![Escritura Detalle](./images/writting2.png)
-
----
-
-## 🛠️ Stack Tecnológico
-- **Frontend**: React.js, TailwindCSS (opcional/personalizado), Lucide Icons.
-- **Visualización**: Chart.js & React-Chartjs-2.
-- **Backend**: Node.js & Express.
-- **Almacenamiento**: Sistema de archivos local (Data Persistence).
-
----
-
-## ⚙️ Instalación y Uso
-
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/Jleon13/NobodysStache_Ecosystem.git
-   cd NobodysStache_Ecosystem
-   ```
-
-2. **Instalar dependencias:**
+## 🛠️ Installation
+1. Clone the repository.
+2. Install dependencies:
    ```bash
    npm install
    cd client && npm install
    ```
-
-3. **Ejecutar en modo desarrollo:**
-   Regresa a la raíz y ejecuta:
+3. Run the development environment:
    ```bash
    npm run dev
    ```
+4. The server will start on port `3001` and the frontend on `5173`. On first run, it will automatically populate the `data/` folder with empty structures.
 
----
-
-> *Desarrollado con ❤️ para organizar el caos cotidiano.*
+## ✨ Aesthetics
+- **Color Palette**: Soft pastel greens, whites, and brand Vino Tinto.
+- **Typography**: Elegant serif fonts (Average) mixed with modern sans-serif.
+- **Layout**: 3-column minimalist grid for reduced cognitive load.

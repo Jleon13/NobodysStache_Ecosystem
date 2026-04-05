@@ -12,11 +12,18 @@ const FILES = {
     gym: path.join(DATA_DIR, 'gym.txt'),
     writings: path.join(DATA_DIR, 'escritos.txt'),
     exercises: path.join(DATA_DIR, 'exercises.txt'),
-    writing_categories: path.join(DATA_DIR, 'writing_categories.txt')
+    writing_categories: path.join(DATA_DIR, 'writing_categories.txt'),
+    dictionary: path.join(DATA_DIR, 'dictionary.txt'),
+    dictionary_categories: path.join(DATA_DIR, 'dictionary_categories.txt'),
+    abbreviations: path.join(DATA_DIR, 'abbreviations.txt'),
+    tasks: path.join(DATA_DIR, 'tasks.txt'),
+    task_categories: path.join(DATA_DIR, 'task_categories.txt'),
+    mantras: path.join(DATA_DIR, 'mantras.txt'),
+    special_deadlines: path.join(DATA_DIR, 'special_deadlines.txt')
 };
 
 // Ensure files exist
-async function initFiles() {
+export async function initFiles() {
     for (const key in FILES) {
         try {
             await fs.access(FILES[key]);
@@ -26,6 +33,21 @@ async function initFiles() {
             if (key === 'categories') defaultValue = JSON.stringify({ income: ["Salary", "Other"], expense: ["Food", "Other"] });
             if (key === 'exercises') defaultValue = JSON.stringify(['Bench Press', 'Squat', 'Deadlift', 'Shoulder Press']);
             if (key === 'writing_categories') defaultValue = JSON.stringify(['Poetry', 'Short Story', 'Reflection', 'Thought']);
+            if (key === 'dictionary_categories') defaultValue = JSON.stringify(['General', 'Geografía', 'Artes', 'Ciencias']);
+            if (key === 'abbreviations') defaultValue = JSON.stringify([
+                { abbr: 'adj.', meaning: 'adjetivo' },
+                { abbr: 'n.', meaning: 'nombre' },
+                { abbr: 'v.', meaning: 'verbo' },
+                { abbr: 'm.', meaning: 'masculino' },
+                { abbr: 'f.', meaning: 'femenino' }
+            ]);
+            if (key === 'task_categories') defaultValue = JSON.stringify([
+                { name: 'Work', color: '#90a4ae' },
+                { name: 'Personal', color: '#ce93d8' },
+                { name: 'Shopping', color: '#ffcc80' },
+                { name: 'Health', color: '#81c784' },
+                { name: 'Finance', color: '#64b5f6' }
+            ]);
             await fs.writeFile(FILES[key], defaultValue);
         }
     }
@@ -54,3 +76,17 @@ export const readExercises = () => readJSON(FILES.exercises);
 export const writeExercises = (data) => writeJSON(FILES.exercises, data);
 export const readWritingCats = () => readJSON(FILES.writing_categories);
 export const writeWritingCats = (data) => writeJSON(FILES.writing_categories, data);
+export const readDictionary = () => readJSON(FILES.dictionary);
+export const writeDictionary = (data) => writeJSON(FILES.dictionary, data);
+export const readDictionaryCats = () => readJSON(FILES.dictionary_categories);
+export const writeDictionaryCats = (data) => writeJSON(FILES.dictionary_categories, data);
+export const readAbbreviations = () => readJSON(FILES.abbreviations);
+export const writeAbbreviations = (data) => writeJSON(FILES.abbreviations, data);
+export const readTasks = () => readJSON(FILES.tasks);
+export const writeTasks = (data) => writeJSON(FILES.tasks, data);
+export const readTaskCats = () => readJSON(FILES.task_categories);
+export const writeTaskCats = (data) => writeJSON(FILES.task_categories, data);
+export const readMantras = () => readJSON(FILES.mantras);
+export const writeMantras = (data) => writeJSON(FILES.mantras, data);
+export const readSpecialDeadlines = () => readJSON(FILES.special_deadlines);
+export const writeSpecialDeadlines = (data) => writeJSON(FILES.special_deadlines, data);
